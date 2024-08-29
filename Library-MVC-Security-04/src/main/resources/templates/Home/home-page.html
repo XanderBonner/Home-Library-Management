@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+</head>
+<body>
+
+<h1>Welcome to Jeff's Home Library</h1>
+
+<hr>
+<!-- Display user name and role -->
+<p>
+    User:<span sec:authentication="principal.username"></span>
+    <br><br>
+    Role(s): <span sec:authentication="principal.authorities"></span>
+</p>
+<hr>
+
+<p>
+    <a href="/api/authors">View Authors</a>
+</p>
+<p>
+    <a href="/api/books">View Books</a>
+</p>
+<p>
+    <a href="/api/publishers">View Publishers</a>
+</p>
+<!-- Add more links or buttons as needed -->
+
+<!-- Logout Button -->
+<form action="#" th:action="@{/logout}" method="POST">
+
+    <input type="submit" value="Logout" />
+
+</form>
+
+</body>
+</html>

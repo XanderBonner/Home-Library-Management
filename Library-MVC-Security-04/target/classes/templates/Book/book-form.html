@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add A Book</title>
+
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Book Directory</h3>
+    <hr>
+
+    <p class="hr mb-4">Save Book</p>
+
+    <form action="#" th:action="@{/api/books/save}"
+          th:object="${book}" method="POST">
+        <input type="hidden" th:field="*{bookID}">
+
+        <input type="text" th:field="*{title}"
+               class="form-control mb-4 w-25" placeholder="Title">
+
+        <input type="text" th:field="*{author.firstName}"
+               class="form-control mb-4 w-25" placeholder="Author First Name">
+
+        <input type="text" th:field="*{author.lastName}"
+               class="form-control mb-4 w-25" placeholder="Author Last Name">
+
+        <input type="text" th:field="*{publisher.name}"
+               class="form-control mb-4 w-25" placeholder="Publisher Name">
+
+        <input type="text" th:field="*{isbn}"
+               class="form-control mb-4 w-25" placeholder="ISBN">
+
+        <input type="text" th:field="*{publicationYear}"
+               class="form-control mb-4 w-25" placeholder="Publication Year">
+
+        <input type="text" th:field="*{bookCategory}"
+               class="form-control mb-4 w-25" placeholder="Book Category">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/api/books}">Back to Book List</a>
+
+</div>
+
+</body>
+</html>
